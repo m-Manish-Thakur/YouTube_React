@@ -11,7 +11,7 @@ const Header = () => {
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png?20220706172052"
             alt="logo"
-            height="21px"
+            height="20px"
           />
           <h2>YouTube</h2>
         </div>
