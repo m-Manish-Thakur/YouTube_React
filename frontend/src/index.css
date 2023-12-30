@@ -1,0 +1,121 @@
+/* index.css */
+:root {
+  --bg-color: white;
+  --text-color: rgb(3, 3, 3);
+  --text-gray: rgb(145, 145, 145);
+  --search-bg: rgb(235, 240, 240);
+  --bg-gray: rgb(230, 230, 230);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 0.3s linear;
+}
+body {
+  overflow-x: hidden;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 0;
+}
+/* #####################################  HEADER  ############################# */
+
+#header {
+  padding: 7px 25px;
+  background-color: var(--bg-color);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.084);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#header .left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+#header .left .menu {
+  font-size: 27px;
+}
+#header .left h2 {
+  font-size: 23px;
+  font-family: "oswald";
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+#header .left {
+  display: flex;
+  align-items: center;
+}
+#header .left input {
+  width: 35vw;
+  border: 1px solid gainsboro;
+  border-radius: 30px;
+  padding: 8px 20px;
+  font-size: 17px;
+  outline: none;
+  margin-left: 50px;
+}
+#header .left div {
+  position: relative;
+}
+#header .left div span {
+  color: darkslategray;
+  position: absolute;
+  top: 3px;
+  right: 4px;
+  font-size: 24px;
+  padding: 6.2px 10px;
+  border-radius: 30px;
+  background-color: var(--search-bg);
+  cursor: pointer;
+}
+#header .left div span:hover {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+}
+#header .left #mic {
+  border-radius: 50%;
+  font-size: 24px;
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  padding: 7px;
+}
+#header .right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+#header .right .new_video {
+  padding: 9px 18px;
+  background-color: var(--text-color);
+  font-size: 14px;
+  color: var(--bg-color);
+  font-weight: 500;
+  display: flex;
+  border-radius: 30px;
+  gap: 10px;
+}
+#header .right .new_video span {
+  padding: 0;
+  font-size: 22px;
+  color: var(--bg-color);
+  background-color: transparent;
+}
+#header .right span {
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 24px;
+  padding: 8px;
+  border-radius: 50%;
+  background-color: var(--search-bg);
+  cursor: pointer;
+}
