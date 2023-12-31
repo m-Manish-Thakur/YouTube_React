@@ -1,10 +1,17 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleDarkMode, selectIsDarkMode } from "../../Utils/themeSlice";
 
 const LightDarkMode = () => {
+  const dispatch = useDispatch();
+  const isDarkMode = useSelector(selectIsDarkMode);
+
   return (
-    <>
-      <span class="material-symbols-outlined">dark_mode</span>
-    </>
+    <div>
+      <span className="material-symbols-outlined" onClick={() => dispatch(toggleDarkMode())}>
+        {!isDarkMode ? "dark_mode" : "light_mode"}
+      </span>
+    </div>
   );
 };
 

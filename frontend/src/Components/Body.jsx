@@ -1,5 +1,5 @@
 import React from "react";
-import SideBar from "./RightSide/SideBar";
+import SideBar from "./Sidebar/SideBar";
 import Main from "./Main/Main";
 
 const Body = () => {

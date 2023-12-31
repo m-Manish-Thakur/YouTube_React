@@ -1,12 +1,18 @@
 import React from "react";
 import LightDarkMode from "./LightDarkMode";
 import SearchBar from "./SearchBar";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleMenu } from "../../Utils/sideBarSlice";
 
 const Header = () => {
+  const dispatch = useDispatch();
+
   return (
     <div id="header">
       <div className="left">
-        <span class="material-symbols-outlined menu">menu</span>
+        <span class="material-symbols-outlined menu" onClick={() => dispatch(toggleMenu())}>
+          menu
+        </span>
         <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png?20220706172052"

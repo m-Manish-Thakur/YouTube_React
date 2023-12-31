@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const SideBar = () => {
+  const [isOpenMenu, setIsOpenMenu] = useState(true);
+  const { isOpen } = useSelector((store) => store.sideBar);
+
+  useEffect(() => {
+    setIsOpenMenu(isOpen);
+    console.log(isOpenMenu);
+  }, [isOpen]);
   return (
-    <div id="sideBar">
+    <div id="sideBar" className={isOpenMenu ? "sideBar" : "sideBarClose"}>
       <a href="#" className="active">
         <span className="material-symbols-outlined">home</span> Home
       </a>

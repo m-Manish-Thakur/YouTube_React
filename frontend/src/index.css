@@ -2,9 +2,18 @@
 :root {
   --bg-color: white;
   --text-color: rgb(3, 3, 3);
-  --text-gray: rgb(145, 145, 145);
+  --text-gray: rgb(110, 110, 110);
   --search-bg: rgb(235, 240, 240);
-  --bg-gray: rgb(230, 230, 230);
+  --bg-gray: rgb(212, 212, 212);
+  --text-darkGray: rgb(70, 70, 70);
+}
+.darkmode {
+  --bg-color: rgb(15, 15, 15);
+  --bg-gray: rgb(54, 54, 54);
+  --text-color: rgb(241, 241, 241);
+  --text-gray: rgb(150, 150, 160);
+  --text-darkGray: rgb(181, 181, 181);
+  --search-bg: rgb(40, 40, 40);
 }
 * {
   margin: 0;
@@ -34,7 +43,7 @@ p {
   top: 0;
   padding: 7px 25px;
   background-color: var(--bg-color);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.084);
+  border-bottom: 1px solid var(--bg-gray);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -47,20 +56,24 @@ p {
 }
 #header .left .menu {
   font-size: 27px;
+  color: var(--text-color);
+  cursor: pointer;
 }
 #header .left h2 {
   font-size: 21px;
   font-family: "oswald";
   font-weight: 600;
   letter-spacing: -1px;
+  color: var(--text-color);
 }
 #header .left {
   display: flex;
   align-items: center;
 }
 #header .left input {
+  background-color: var(--bg-color);
   width: 35vw;
-  border: 1px solid gainsboro;
+  border: 1px solid var(--bg-gray);
   border-radius: 30px;
   padding: 8px 20px;
   font-size: 17px;
@@ -71,7 +84,7 @@ p {
   position: relative;
 }
 #header .left div span {
-  color: darkslategray;
+  color: var(--text-gray);
   position: absolute;
   top: 3px;
   right: 4px;
@@ -123,36 +136,56 @@ p {
   cursor: pointer;
 }
 
+@media screen and (max-width: 900px) {
+  #header {
+    padding: 7px 10px;
+  }
+  #header .searchBar {
+    display: none;
+  }
+  #header .new_video p {
+    display: none;
+  }
+}
 /* ###############################  Body  ################################### */
 #body {
   width: 100vw;
-  position: relative;
-  top: 0;
-  left: 0;
   display: flex;
+  background-color: var(--bg-color);
 }
 
 /* ################################   Side Bar   ################################## */
 
 #sideBar {
-  width: 200px;
   height: 100vh;
-  position: fixed;
-  top: 0;
-  padding-top: 75px;
-  padding-right: 15px;
+  position: sticky;
+  top: 54px;
+  background-color: var(--bg-color);
+  z-index: 100;
+  padding-top: 18px;
+  padding-right: 30px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 30px;
-  border-right: 1px solid gainsboro;
+  gap: 20px;
+  border-right: 1px solid var(--bg-gray);
+}
+.sideBar {
+  width: 300px;
+  opacity: 1;
+  display: flex;
+}
+.sideBarClose {
+  width: 0px;
+  opacity: 0;
+  display: none;
 }
 #sideBar a {
   display: flex;
   align-items: center;
   text-decoration: none;
   padding: 10px 20px 10px 0;
-  width: 100%;
+  width: 110%;
   font-size: 16px;
   font-weight: 400;
   color: var(--text-color);
@@ -181,6 +214,99 @@ p {
 
 #main {
   flex-grow: 1;
-  min-height: 110vh;
-  padding: 10px 20px 0 230px;
+  min-height: 100vh;
+  padding: 10px 20px 0 10px;
+}
+
+/* ----------------  Buttons  --------------------- */
+#buttonList {
+  max-width: 90vw;
+  gap: 15px;
+  display: flex;
+  align-items: center;
+  overflow-x: scroll;
+  padding: 12px 10px 20px 4vw;
+  position: sticky;
+  top: 55px;
+  background-color: var(--bg-color);
+  background-color: aliceblue;
+}
+#buttonList::-webkit-scrollbar {
+  display: none;
+}
+#buttonList button {
+  padding: 5px 13px;
+  background-color: var(--bg-gray);
+  color: var(--text-color);
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  border: none;
+  font-size: 16px;
+  border-radius: 7px;
+}
+#main .video_container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  gap: 30px 10px;
+}
+#main .video_container .videoCard {
+  width: 360px;
+  padding: 10px;
+}
+#main .video_container .videoCard img {
+  width: 100%;
+  border-radius: 25px;
+}
+#main .video_container .videoCard h2 {
+  width: 95%;
+  color: var(--text-color);
+  font-size: 16px;
+  font-family: "roboto";
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0.4px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+#main .video_container .videoCard p {
+  font-family: "poppins";
+  font-size: 14px;
+  color: var(--text-gray);
+  margin-left: 10px;
+  margin-bottom: 0;
+}
+#main .video_container .videoCard h3 {
+  font-family: "poppins";
+  font-size: 14.5px;
+  color: var(--text-darkGray);
+  margin: 3px 10px;
+  letter-spacing: 0.3px;
+}
+
+@media screen and (max-width: 900px) {
+  #body {
+    display: block;
+  }
+  #sideBar {
+    position: fixed;
+    height: 100vh;
+    background-color: var(--bg-color);
+  }
+  #main {
+    min-height: 100vh;
+    padding: 10px 0;
+  }
+  #buttonList {
+    display: none;
+  }
+  #main .video_container {
+    gap: 20px 0;
+  }
+  #main .video_container .videoCard {
+    width: 100%;
+  }
 }
