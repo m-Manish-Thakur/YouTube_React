@@ -1,7 +1,7 @@
 import React from "react";
 import LightDarkMode from "./LightDarkMode";
 import SearchBar from "./SearchBar";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { toggleMenu } from "../../Utils/sideBarSlice";
 
 const Header = () => {
@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <div id="header">
       <div className="left">
-        <span class="material-symbols-outlined menu" onClick={() => dispatch(toggleMenu())}>
+        <span className="material-symbols-outlined menu" onClick={() => dispatch(toggleMenu())}>
           menu
         </span>
         <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
@@ -30,6 +30,24 @@ const Header = () => {
           <p>New Video</p>
         </div>
         <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" height="40px" />
+      </div>
+      <div id="reponsive_menu">
+        <a href="#">
+          <span className="material-symbols-outlined">home</span>
+          Home
+        </a>
+        <a href="#">
+          <span className="material-symbols-outlined">search</span>
+          Search
+        </a>
+        <a href="#">
+          <span className="material-symbols-outlined">subscriptions</span>
+          Subscriptions
+        </a>
+        <a href="#">
+          <span className="material-symbols-outlined">video_library</span>
+          Library
+        </a>
       </div>
     </div>
   );

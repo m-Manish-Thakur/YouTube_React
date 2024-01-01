@@ -1,8 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const VideoCard = ({ item }) => {
-  console.log(item);
-
   //   Formate YOUTUBE Views -----------------------------------------------------
   function formatYouTubeViews(views) {
     if (views >= 1000000) {
@@ -55,14 +54,27 @@ const VideoCard = ({ item }) => {
   const formattedDate = formatYouTubeDate(item?.snippet?.publishedAt);
 
   return (
-    <div className="videoCard">
-      <img src={item?.snippet?.thumbnails?.medium?.url} alt="Images" />
-      <h2>{item?.snippet?.title.substring(0, 60)}</h2>
-      <p>{item?.snippet?.channelTitle}</p>
-      <h3>
-        {formattedViews} • {formattedDate}
-      </h3>
-    </div>
+    <Link to={`/videos/watch/${item?.id}`} style={{ textDecoration: "none" }}>
+      <div className="videoCard">
+        <img src={item?.snippet?.thumbnails?.medium?.url} alt="Images" />
+        <div className="video_info">
+          <img
+            src={item?.snippet?.thumbnails?.default?.url}
+            style={{ width: "40px", height: "40px", borderRadius: "50%", objectFit: "cover" }}
+            alt="video"
+          />
+          <div>
+            <h2>{item?.snippet?.title.substring(0, 60)}</h2>
+            <div className="chennel">
+              <p>{item?.snippet?.channelTitle}</p>
+              <h3>
+                {formattedViews} • {formattedDate}
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Link>
   );
 };
 

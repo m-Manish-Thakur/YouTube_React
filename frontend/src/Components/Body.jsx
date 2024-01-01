@@ -1,12 +1,19 @@
 import React from "react";
 import SideBar from "./Sidebar/SideBar";
 import Main from "./Main/Main";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import WatchPage from "./Main/WatchPage";
 
 const Body = () => {
   return (
     <div id="body">
-      <SideBar />
-      <Main />
+      <BrowserRouter>
+        <SideBar />
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/videos/watch/:id" element={<WatchPage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 };

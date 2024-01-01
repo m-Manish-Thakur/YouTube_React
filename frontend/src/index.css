@@ -41,7 +41,7 @@ p {
 #header {
   position: sticky;
   top: 0;
-  padding: 7px 25px;
+  padding: 10px 25px;
   background-color: var(--bg-color);
   border-bottom: 1px solid var(--bg-gray);
   display: flex;
@@ -70,20 +70,21 @@ p {
   display: flex;
   align-items: center;
 }
-#header .left input {
+#header .left .searchBar input {
   background-color: var(--bg-color);
   width: 35vw;
   border: 1px solid var(--bg-gray);
+  color: var(--text-color);
   border-radius: 30px;
   padding: 8px 20px;
   font-size: 17px;
   outline: none;
   margin-left: 50px;
 }
-#header .left div {
+#header .left .searchBar {
   position: relative;
 }
-#header .left div span {
+#header .left .searchBar span {
   color: var(--text-gray);
   position: absolute;
   top: 3px;
@@ -94,7 +95,7 @@ p {
   background-color: var(--search-bg);
   cursor: pointer;
 }
-#header .left div span:hover {
+#header .left .searchBar span:hover {
   background-color: var(--text-color);
   color: var(--bg-color);
 }
@@ -135,16 +136,46 @@ p {
   background-color: var(--search-bg);
   cursor: pointer;
 }
-
+#reponsive_menu {
+  display: none;
+}
 @media screen and (max-width: 900px) {
   #header {
-    padding: 7px 10px;
+    padding: 8px 10px;
+  }
+  #header .menu {
+    display: none;
   }
   #header .searchBar {
     display: none;
   }
+  #header .left #mic {
+    display: none;
+  }
   #header .new_video p {
     display: none;
+  }
+  #reponsive_menu {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: var(--bg-color);
+  }
+  #reponsive_menu a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 5px;
+  }
+  #reponsive_menu span {
+    font-size: 28px;
+    color: var(--text-color);
   }
 }
 /* ###############################  Body  ################################### */
@@ -159,7 +190,7 @@ p {
 #sideBar {
   height: 100vh;
   position: sticky;
-  top: 54px;
+  top: 65px;
   background-color: var(--bg-color);
   z-index: 100;
   padding-top: 18px;
@@ -167,7 +198,7 @@ p {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 20px;
+  gap: 10px;
   border-right: 1px solid var(--bg-gray);
 }
 .sideBar {
@@ -191,6 +222,14 @@ p {
   color: var(--text-color);
   border-radius: 15px;
 }
+#sideBar p {
+  padding: 10px 20px 10px 10px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: var(--text-color);
+  border-radius: 15px;
+}
 #sideBar a span {
   font-size: 25px;
   padding: 0 10px;
@@ -209,43 +248,42 @@ p {
   border-radius: 10px;
   background-color: red;
 }
-
 /* ####################################  Main  Container  ############################### */
 
 #main {
-  flex-grow: 1;
   min-height: 100vh;
-  padding: 10px 20px 0 10px;
+  padding: 0px 20px 0 10px;
 }
 
 /* ----------------  Buttons  --------------------- */
 #buttonList {
-  max-width: 90vw;
+  max-width: 75vw;
   gap: 15px;
   display: flex;
   align-items: center;
   overflow-x: scroll;
-  padding: 12px 10px 20px 4vw;
+  padding: 12px 10px 10px 4vw;
   position: sticky;
-  top: 55px;
+  top: 64px;
   background-color: var(--bg-color);
-  background-color: aliceblue;
 }
 #buttonList::-webkit-scrollbar {
   display: none;
 }
 #buttonList button {
-  padding: 5px 13px;
-  background-color: var(--bg-gray);
+  padding: 3px 13px;
+  background-color: var(--bg-color);
   color: var(--text-color);
   font-weight: 400;
   letter-spacing: 0.3px;
   border: none;
   font-size: 16px;
-  border-radius: 7px;
+  border-radius: 25px;
+  border: 2px solid var(--text-color);
 }
 #main .video_container {
   width: 100%;
+  padding-top: 15px;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -258,19 +296,20 @@ p {
 }
 #main .video_container .videoCard img {
   width: 100%;
-  border-radius: 25px;
+  border-radius: 15px;
+}
+#main .video_container .videoCard .video_info {
+  display: flex;
+  padding: 10px 0;
 }
 #main .video_container .videoCard h2 {
   width: 95%;
   color: var(--text-color);
-  font-size: 16px;
-  font-family: "roboto";
-  font-weight: 400;
+  font-size: 15.5px;
+  font-family: "inter";
+  font-weight: 600;
   line-height: 22px;
-  letter-spacing: 0.4px;
-  margin-top: 10px;
   margin-left: 10px;
-  margin-bottom: 5px;
 }
 #main .video_container .videoCard p {
   font-family: "poppins";
@@ -281,9 +320,9 @@ p {
 }
 #main .video_container .videoCard h3 {
   font-family: "poppins";
-  font-size: 14.5px;
+  font-size: 14px;
   color: var(--text-darkGray);
-  margin: 3px 10px;
+  margin: 2px 10px;
   letter-spacing: 0.3px;
 }
 
@@ -292,21 +331,192 @@ p {
     display: block;
   }
   #sideBar {
-    position: fixed;
-    height: 100vh;
-    background-color: var(--bg-color);
+    display: none;
   }
   #main {
     min-height: 100vh;
-    padding: 10px 0;
+    padding: 0;
   }
   #buttonList {
-    display: none;
+    max-width: 100vw;
+    top: 0;
+    padding: 10px;
   }
   #main .video_container {
     gap: 20px 0;
+    padding: 10px 0;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #main .video_container {
+    gap: 0;
   }
   #main .video_container .videoCard {
+    padding: 0;
     width: 100%;
   }
+  #main .video_container .videoCard img {
+    width: 100%;
+    border-radius: 0;
+  }
+  #main .video_container .videoCard .video_info {
+    padding: 10px;
+  }
+  #main .video_container .videoCard .video_info .chennel {
+    display: flex;
+    gap: 5px;
+  }
+  #main .video_container .videoCard h2 {
+    width: 98%;
+    color: var(--text-color);
+    font-size: 14px;
+    line-height: 19px;
+    margin-bottom: 3px;
+  }
+  #main .video_container .videoCard p {
+    font-family: "poppins";
+    font-size: 12px;
+    color: var(--text-gray);
+    margin-left: 10px;
+  }
+  #main .video_container .videoCard h3 {
+    font-family: "poppins";
+    font-size: 12px;
+    color: var(--text-darkGray);
+    margin: 2px 10px;
+    letter-spacing: 0.3px;
+  }
+}
+
+/* ########################   Watch Page  ############################### */
+
+#watchPage {
+  flex-basis: 1;
+  width: 100%;
+  padding: 20px 5vw;
+  display: grid;
+  grid-template-columns: 55vw 350px;
+  justify-content: center;
+  gap: 50px;
+}
+#watchPage #video_watch iframe {
+  width: 55vw;
+  height: 32vw;
+  border-radius: 15px;
+}
+#relatedVideo {
+  width: 350px;
+  height: 100%;
+  background-color: mediumaquamarine;
+}
+#watchPage #video_watch h3 {
+  font-family: "roboto";
+  font-weight: 900;
+  font-size: 20px;
+  color: var(--text-color);
+}
+#watchPage #video_watch .name_likes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+}
+#watchPage #video_watch .likes {
+  display: flex;
+  gap: 10px;
+}
+#watchPage #video_watch .likes span {
+  color: var(--text-darkGray);
+  background-color: var(--bg-gray);
+  font-size: 25px;
+  padding: 5px 15px;
+  border-radius: 30px;
+}
+#watchPage #video_watch .likes p {
+  color: var(--text-darkGray);
+  background-color: var(--bg-gray);
+  color: var(--text-darkGray);
+  background-color: var(--bg-gray);
+  font-size: 17px;
+  font-family: "inter";
+  font-weight: 600;
+  border-radius: 30px;
+  display: flex;
+  padding-right: 15px;
+  align-items: center;
+}
+
+@media screen and (max-width: 900px) {
+  #watchPage {
+    height: 100%;
+    flex-basis: 1;
+    width: 100%;
+    padding: 20px 0;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 100vw;
+  }
+  #watchPage #video_watch {
+    height: 100%;
+  }
+  #watchPage #video_watch iframe {
+    width: 100vw;
+    height: 55vw;
+    border-radius: 0;
+  }
+  #relatedVideo {
+    width: 100%;
+  }
+  #watchPage #video_watch h3 {
+    font-size: 18px;
+    margin-left: 15px;
+  }
+  #watchPage #video_watch .name_likes {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 15px 15px;
+  }
+  #watchPage #video_watch .likes {
+    display: flex;
+    gap: 10px;
+  }
+  #watchPage #video_watch .likes span {
+    font-size: 22px;
+    padding: 6px 20px;
+  }
+  #watchPage #video_watch .likes p {
+    padding-right: 20px;
+  }
+}
+
+/* ##########################  Description  ################### */
+
+#description {
+  position: relative;
+}
+#description p {
+  white-space: pre-line;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  font-family: "inter";
+  color: var(--text-color);
+  font-size: 15px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: var(--search-bg);
+  overflow: hidden;
+  cursor: pointer;
+  margin-top: 15px;
+}
+#description span {
+  position: absolute;
+  color: var(--text-darkGray);
+  right: 15px;
+  bottom: 0px;
+  font-size: 35px;
 }
