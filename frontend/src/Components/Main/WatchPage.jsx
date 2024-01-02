@@ -4,10 +4,12 @@ import { closeMenu } from "../../Utils/sideBarSlice";
 import { useDispatch } from "react-redux";
 import { API_KEY } from "../../Utils/constatnts";
 import VideoDetails from "./VideoDetails";
+import ChannelDetails from "./ChannelDetails";
 
 const WatchPage = () => {
   const dispatch = useDispatch();
-  const { id } = useParams();
+  const { id, likes } = useParams();
+  const [channelInfo, setChannelInfo] = useState(null);
   const [videoInfo, setVideoInfo] = useState(null);
 
   useEffect(() => {
@@ -30,8 +32,32 @@ const WatchPage = () => {
     };
 
     fetchVideo();
+
+    const API_URL = `https://www.googleapis.com/youtube/v3/channels?part=snippet,contentDetails,statistics&id=${videoInfo?.channelId}&key=${API_KEY}`;
+
+    const fetch_channel = async () => {
+      const response = await fetch(API_URL);
+      const data = await response.json();
+      console.log(data);
+      setChannelInfo(data?.items[0]);
+    };
+    fetch_channel();
     window.scrollTo(0, 0);
-  }, [id, dispatch]);
+  }, [id]);
+
+  function formatLikes(likes) {
+    if (likes >= 1000000) {
+      return (likes / 1000000).toFixed(1) + "M";
+    } else if (likes >= 1000) {
+      return (likes / 1000).toFixed(1) + "K";
+    } else {
+      return likes.toString();
+    }
+  }
+
+  // Example usage:
+  const likesCount = likes;
+  const formattedLikes = formatLikes(likesCount);
 
   return videoInfo ? (
     <div id="watchPage">
@@ -43,9 +69,11 @@ const WatchPage = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
         ></iframe>
-        <VideoDetails videoInfo={videoInfo} />
+        <VideoDetails videoInfo={videoInfo} likes={formattedLikes} id={id} channelInfo={channelInfo} />
       </div>
-      <div id="relatedVideo"></div>
+      <div id="channelInfo">
+        <ChannelDetails details={channelInfo} />
+      </div>
     </div>
   ) : (
     <h1>Loading</h1>

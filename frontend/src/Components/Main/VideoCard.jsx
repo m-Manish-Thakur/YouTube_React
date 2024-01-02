@@ -54,7 +54,7 @@ const VideoCard = ({ item }) => {
   const formattedDate = formatYouTubeDate(item?.snippet?.publishedAt);
 
   return (
-    <Link to={`/videos/watch/${item?.id}`} style={{ textDecoration: "none" }}>
+    <Link to={`/videos/watch/${item?.id}/${item?.statistics?.likeCount}`} style={{ textDecoration: "none" }}>
       <div className="videoCard">
         <img src={item?.snippet?.thumbnails?.medium?.url} alt="Images" />
         <div className="video_info">

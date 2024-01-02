@@ -1,20 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { API_KEY } from "../../Utils/constatnts";
+import GetComments from "./GetComments";
 
-const VideoDetails = ({ videoInfo }) => {
-  console.log(videoInfo);
+const VideoDetails = ({ videoInfo, likes, id, channelInfo }) => {
   const [channel, setChannel] = useState(null);
   const [showDes, setShowDes] = useState(false);
-  useEffect(() => {
-    const API_URL = `https://www.googleapis.com/youtube/v3/channels?part=snippet,contentDetails,statistics&id=${videoInfo?.channelId}&key=${API_KEY}`;
 
-    const fetch_channel = async () => {
-      const response = await fetch(API_URL);
-      const data = await response.json();
-      console.log(data);
-      setChannel(data?.items[0]);
-    };
-    fetch_channel();
+  useEffect(() => {
+    setChannel(channelInfo);
   }, []);
 
   //   Subscribers ----------------------------------
@@ -53,7 +45,9 @@ const VideoDetails = ({ videoInfo }) => {
           </div>
         </div>
         <div className="likes">
-          <span class="material-symbols-outlined">thumb_up</span>
+          <p style={{ fontSize: "15px" }}>
+            <span class="material-symbols-outlined">thumb_up</span> {likes}
+          </p>
           <span class="material-symbols-outlined">thumb_down</span>
           <p>
             <span class="material-symbols-outlined">share</span>
@@ -65,6 +59,7 @@ const VideoDetails = ({ videoInfo }) => {
         <p style={showDes ? { height: "100%" } : { height: "100px" }}>{videoInfo?.description}</p>
         <span class="material-symbols-outlined">keyboard_arrow_down</span>
       </div>
+      <GetComments videoId={id} />
     </div>
   );
 };

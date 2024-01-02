@@ -11,7 +11,7 @@ const Body = () => {
         <SideBar />
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/videos/watch/:id" element={<WatchPage />} />
+          <Route path="/videos/watch/:id/:likes" element={<WatchPage />} />
         </Routes>
       </BrowserRouter>
     </div>

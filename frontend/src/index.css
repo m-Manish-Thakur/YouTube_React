@@ -405,11 +405,26 @@ p {
   height: 32vw;
   border-radius: 15px;
 }
-#relatedVideo {
+#channelInfo {
   width: 350px;
   height: 100%;
-  background-color: mediumaquamarine;
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid var(--bg-gray);
+  text-align: center;
 }
+#channelInfo h4 {
+  font-size: 18px;
+  color: var(--text-color);
+  margin-top: 10px;
+}
+
+#channelInfo p {
+  color: var(--text-gray);
+  font-size: 15px;
+  margin-top: 10px;
+}
+
 #watchPage #video_watch h3 {
   font-family: "roboto";
   font-weight: 900;
@@ -470,14 +485,14 @@ p {
   }
   #watchPage #video_watch h3 {
     font-size: 18px;
-    margin-left: 15px;
+    margin: 5px 10px;
   }
   #watchPage #video_watch .name_likes {
     display: flex;
     flex-direction: column-reverse;
     gap: 20px;
     align-items: flex-start;
-    padding: 15px 15px;
+    padding: 15px 10px;
   }
   #watchPage #video_watch .likes {
     display: flex;
@@ -519,4 +534,69 @@ p {
   right: 15px;
   bottom: 0px;
   font-size: 35px;
+}
+#comments h2 {
+  color: var(--text-color);
+  letter-spacing: 0.3px;
+  font-family: "inter";
+  font-size: 21px;
+  font-weight: 700;
+  margin-top: 30px;
+}
+#comments .comment {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  margin-top: 15px;
+}
+#comments .comment p {
+  font-size: 13px;
+  color: var(--text-color);
+  font-family: "inter";
+  margin-top: 5px;
+}
+#comments .comment h4 {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-color);
+  font-family: "inter";
+}
+#comments .comment .buttons {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+#comments .comment .buttons span {
+  font-size: 20px;
+  color: var(--text-color);
+  padding: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+#comments .comment .buttons span:hover {
+  background-color: var(--bg-gray);
+}
+#comments .comment .buttons i {
+  font-size: 12px;
+  font-family: "inter";
+  font-weight: 600;
+  color: var(--text-color);
+  padding: 5px 10px;
+  margin-left: 10px;
+  border-radius: 20px;
+  font-style: normal;
+  cursor: pointer;
+}
+#comments .comment .buttons i:hover {
+  background-color: var(--bg-gray);
+}
+
+@media screen and (max-width: 600px) {
+  #description {
+    padding: 10px;
+  }
+  #comments {
+    padding: 10px;
+  }
 }
