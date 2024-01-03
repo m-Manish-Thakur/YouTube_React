@@ -4,18 +4,17 @@ import { closeMenu } from "../../Utils/sideBarSlice";
 import { useDispatch } from "react-redux";
 import { API_KEY } from "../../Utils/constatnts";
 import VideoDetails from "./VideoDetails";
-import ChannelDetails from "./ChannelDetails";
+import Shimmer_watch from "./Shimmer_watch";
 
 const WatchPage = () => {
   const dispatch = useDispatch();
   const { id, likes } = useParams();
-  const [channelInfo, setChannelInfo] = useState(null);
   const [videoInfo, setVideoInfo] = useState(null);
 
   useEffect(() => {
     const fetchVideo = async () => {
       try {
-        dispatch(closeMenu());
+        // dispatch(closeMenu());
         const response = await fetch(
           `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${id}&key=${API_KEY}`
         );
@@ -30,20 +29,9 @@ const WatchPage = () => {
         console.error("Error fetching video data", error);
       }
     };
-
     fetchVideo();
-
-    const API_URL = `https://www.googleapis.com/youtube/v3/channels?part=snippet,contentDetails,statistics&id=${videoInfo?.channelId}&key=${API_KEY}`;
-
-    const fetch_channel = async () => {
-      const response = await fetch(API_URL);
-      const data = await response.json();
-      console.log(data);
-      setChannelInfo(data?.items[0]);
-    };
-    fetch_channel();
     window.scrollTo(0, 0);
-  }, [id]);
+  }, [id, dispatch]);
 
   function formatLikes(likes) {
     if (likes >= 1000000) {
@@ -69,14 +57,11 @@ const WatchPage = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
         ></iframe>
-        <VideoDetails videoInfo={videoInfo} likes={formattedLikes} id={id} channelInfo={channelInfo} />
-      </div>
-      <div id="channelInfo">
-        <ChannelDetails details={channelInfo} />
+        <VideoDetails videoInfo={videoInfo} likes={formattedLikes} id={id} />
       </div>
     </div>
   ) : (
-    <h1>Loading</h1>
+    <Shimmer_watch />
   );
 };
 

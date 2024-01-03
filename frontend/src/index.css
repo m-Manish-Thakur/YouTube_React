@@ -1,15 +1,17 @@
 /* index.css */
 :root {
   --bg-color: white;
+  --search-bg: rgb(235, 240, 240);
+  --bg-shimmer: rgb(208, 208, 208);
+  --bg-gray: rgb(212, 212, 212);
   --text-color: rgb(3, 3, 3);
   --text-gray: rgb(110, 110, 110);
-  --search-bg: rgb(235, 240, 240);
-  --bg-gray: rgb(212, 212, 212);
   --text-darkGray: rgb(70, 70, 70);
 }
 .darkmode {
   --bg-color: rgb(15, 15, 15);
   --bg-gray: rgb(54, 54, 54);
+  --bg-shimmer: rgb(49, 49, 49);
   --text-color: rgb(241, 241, 241);
   --text-gray: rgb(150, 150, 160);
   --text-darkGray: rgb(181, 181, 181);
@@ -257,7 +259,7 @@ p {
 
 /* ----------------  Buttons  --------------------- */
 #buttonList {
-  max-width: 75vw;
+  max-width: 85vw;
   gap: 15px;
   display: flex;
   align-items: center;
@@ -305,25 +307,36 @@ p {
 #main .video_container .videoCard h2 {
   width: 95%;
   color: var(--text-color);
-  font-size: 15.5px;
+  font-size: 14px;
   font-family: "inter";
   font-weight: 600;
   line-height: 22px;
   margin-left: 10px;
 }
 #main .video_container .videoCard p {
-  font-family: "poppins";
-  font-size: 14px;
+  font-family: "inter";
+  font-size: 13px;
   color: var(--text-gray);
   margin-left: 10px;
   margin-bottom: 0;
 }
 #main .video_container .videoCard h3 {
   font-family: "poppins";
-  font-size: 14px;
+  font-size: 13px;
   color: var(--text-darkGray);
   margin: 2px 10px;
   letter-spacing: 0.3px;
+}
+
+@media screen and (max-width: 1400px) {
+  #buttonList {
+    max-width: 82vw;
+  }
+}
+@media screen and (max-width: 1000px) {
+  #buttonList {
+    max-width: 75vw;
+  }
 }
 
 @media screen and (max-width: 900px) {
@@ -346,6 +359,12 @@ p {
     gap: 20px 0;
     padding: 10px 0;
   }
+}
+
+#shimmer_card {
+  width: 360px;
+  height: 250px;
+  margin: 25px 0;
 }
 
 @media screen and (max-width: 700px) {
@@ -393,38 +412,15 @@ p {
 
 #watchPage {
   flex-basis: 1;
-  width: 100%;
-  padding: 20px 5vw;
-  display: grid;
-  grid-template-columns: 55vw 350px;
-  justify-content: center;
-  gap: 50px;
+  width: 60%;
+  padding-top: 10px;
+  margin-left: 50px;
 }
 #watchPage #video_watch iframe {
-  width: 55vw;
+  width: 60vw;
   height: 32vw;
   border-radius: 15px;
 }
-#channelInfo {
-  width: 350px;
-  height: 100%;
-  padding: 10px;
-  border-radius: 15px;
-  border: 1px solid var(--bg-gray);
-  text-align: center;
-}
-#channelInfo h4 {
-  font-size: 18px;
-  color: var(--text-color);
-  margin-top: 10px;
-}
-
-#channelInfo p {
-  color: var(--text-gray);
-  font-size: 15px;
-  margin-top: 10px;
-}
-
 #watchPage #video_watch h3 {
   font-family: "roboto";
   font-weight: 900;
@@ -442,17 +438,15 @@ p {
   gap: 10px;
 }
 #watchPage #video_watch .likes span {
-  color: var(--text-darkGray);
-  background-color: var(--bg-gray);
+  color: var(--text-color);
+  background-color: var(--search-bg);
   font-size: 25px;
   padding: 5px 15px;
   border-radius: 30px;
 }
 #watchPage #video_watch .likes p {
-  color: var(--text-darkGray);
-  background-color: var(--bg-gray);
-  color: var(--text-darkGray);
-  background-color: var(--bg-gray);
+  color: var(--text-color);
+  background-color: var(--search-bg);
   font-size: 17px;
   font-family: "inter";
   font-weight: 600;
@@ -461,12 +455,23 @@ p {
   padding-right: 15px;
   align-items: center;
 }
-
+#shimmer_watch {
+  width: 60%;
+  margin-left: 50px;
+  padding: 15px;
+}
+#shimmer_watch .video {
+  width: 100%;
+  height: 73%;
+  border-radius: 15px;
+  background-color: var(--search-bg);
+}
 @media screen and (max-width: 900px) {
   #watchPage {
     height: 100%;
     flex-basis: 1;
     width: 100%;
+    margin-left: 0;
     padding: 20px 0;
     display: grid;
     gap: 10px;
@@ -505,12 +510,29 @@ p {
   #watchPage #video_watch .likes p {
     padding-right: 20px;
   }
+  #shimmer_watch {
+    width: 100%;
+    height: 100vh;
+    margin-left: 0;
+    padding: 10px;
+  }
+  #shimmer_watch .video {
+    width: 100%;
+    height: 25%;
+    border-radius: 10px;
+    background-color: var(--search-bg);
+  }
 }
 
 /* ##########################  Description  ################### */
 
 #description {
-  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 0 10px;
+  margin-top: 15px;
+  background-color: var(--search-bg);
 }
 #description p {
   white-space: pre-line;
@@ -520,20 +542,15 @@ p {
   hyphens: auto;
   font-family: "inter";
   color: var(--text-color);
-  font-size: 15px;
-  padding: 15px;
-  border-radius: 10px;
-  background-color: var(--search-bg);
-  overflow: hidden;
-  cursor: pointer;
-  margin-top: 15px;
+  font-size: 14px;
 }
 #description span {
-  position: absolute;
   color: var(--text-darkGray);
-  right: 15px;
-  bottom: 0px;
-  font-size: 35px;
+  font-size: 16px;
+  font-family: "inter";
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 15px;
 }
 #comments h2 {
   color: var(--text-color);

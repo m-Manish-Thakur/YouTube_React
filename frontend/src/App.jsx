@@ -7,7 +7,7 @@ import { selectIsDarkMode } from "./Utils/themeSlice";
 const App = () => {
   const isDarkMode = useSelector(selectIsDarkMode);
   return (
-    <div className={isDarkMode ? "darkmode" : ""}>
+    <div className={isDarkMode ? "" : "darkmode"}>
       <Header />
       <Body />
     </div>

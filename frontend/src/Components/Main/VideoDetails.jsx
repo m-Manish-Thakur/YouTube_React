@@ -1,12 +1,24 @@
 import React, { useEffect, useState } from "react";
+import { API_KEY } from "../../Utils/constatnts";
 import GetComments from "./GetComments";
 
-const VideoDetails = ({ videoInfo, likes, id, channelInfo }) => {
+const VideoDetails = ({ videoInfo, likes, id }) => {
   const [channel, setChannel] = useState(null);
   const [showDes, setShowDes] = useState(false);
 
   useEffect(() => {
-    setChannel(channelInfo);
+    const fetchChannel = async () => {
+      try {
+        const API_URL = `https://www.googleapis.com/youtube/v3/channels?part=snippet,contentDetails,statistics&id=${videoInfo.channelId}&key=${API_KEY}`;
+        const response = await fetch(API_URL);
+        const data = await response.json();
+        setChannel(data?.items[0]);
+      } catch (error) {
+        console.error("Error fetching channel data", error);
+      }
+    };
+
+    fetchChannel();
   }, []);
 
   //   Subscribers ----------------------------------
@@ -55,9 +67,9 @@ const VideoDetails = ({ videoInfo, likes, id, channelInfo }) => {
           </p>
         </div>
       </div>
-      <div id="description" onClick={() => setShowDes(!showDes)}>
-        <p style={showDes ? { height: "100%" } : { height: "100px" }}>{videoInfo?.description}</p>
-        <span class="material-symbols-outlined">keyboard_arrow_down</span>
+      <div id="description">
+        <p>{showDes ? videoInfo?.description.substring(0, 1000) : videoInfo?.description.substring(0, 70)}</p>
+        <span onClick={() => setShowDes(!showDes)}>{showDes ? "Less More" : "Read More"}</span>
       </div>
       <GetComments videoId={id} />
     </div>

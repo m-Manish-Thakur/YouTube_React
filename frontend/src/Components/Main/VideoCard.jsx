@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import Shimmer_VideoCard from "./Shimmer_VideoCard";
 const VideoCard = ({ item }) => {
   //   Formate YOUTUBE Views -----------------------------------------------------
   function formatYouTubeViews(views) {
@@ -53,10 +53,15 @@ const VideoCard = ({ item }) => {
   }
   const formattedDate = formatYouTubeDate(item?.snippet?.publishedAt);
 
-  return (
+  return item ? (
     <Link to={`/videos/watch/${item?.id}/${item?.statistics?.likeCount}`} style={{ textDecoration: "none" }}>
       <div className="videoCard">
-        <img src={item?.snippet?.thumbnails?.medium?.url} alt="Images" />
+        {!item?.snippet?.thumbnails?.medium?.url ? (
+          <div style={{ width: "100%", height: "200px", background: "var(--search-bg)", borderRadius: "10px" }}></div>
+        ) : (
+          <img src={item?.snippet?.thumbnails?.medium?.url} alt="Images" />
+        )}
+
         <div className="video_info">
           <img
             src={item?.snippet?.thumbnails?.default?.url}
@@ -75,6 +80,8 @@ const VideoCard = ({ item }) => {
         </div>
       </div>
     </Link>
+  ) : (
+    <></>
   );
 };
 
