@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Shimmer_VideoCard from "./Shimmer_VideoCard";
+
 const VideoCard = ({ item }) => {
   //   Formate YOUTUBE Views -----------------------------------------------------
   function formatYouTubeViews(views) {
