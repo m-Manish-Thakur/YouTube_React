@@ -141,6 +141,25 @@ p {
 #reponsive_menu {
   display: none;
 }
+#searchSuggetion {
+  position: absolute;
+  top: 50px;
+  background-color: var(--search-bg);
+  width: 35vw;
+  left: 4.5vw;
+  padding: 7px 0;
+  font-family: "inter";
+  letter-spacing: 0.2px;
+  color: var(--text-color);
+}
+#searchSuggetion p {
+  padding: 6px 10px;
+}
+#searchSuggetion p:hover {
+  background-color: var(--bg-gray);
+  cursor: default;
+}
+
 @media screen and (max-width: 900px) {
   #header {
     padding: 8px 10px;

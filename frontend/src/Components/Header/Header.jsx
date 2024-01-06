@@ -14,7 +14,7 @@ const Header = () => {
         <span className="material-symbols-outlined menu" onClick={() => dispatch(toggleMenu())}>
           menu
         </span>
-        <Link to="/">
+        <Link to="/" style={{ textDecoration: "none" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png?20220706172052"
