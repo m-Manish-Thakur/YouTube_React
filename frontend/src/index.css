@@ -184,6 +184,8 @@ p {
 #body {
   width: 100vw;
   display: flex;
+  position: fixed;
+  top: 58px;
   background-color: var(--bg-color);
 }
 
@@ -204,7 +206,7 @@ p {
   border-right: 1px solid var(--bg-gray);
 }
 .sideBar {
-  width: 300px;
+  width: 200px;
   opacity: 1;
   display: flex;
 }
@@ -253,10 +255,13 @@ p {
 /* ####################################  Main  Container  ############################### */
 
 #main {
-  min-height: 100vh;
-  padding: 0px 20px 0 10px;
+  max-height: 100vh;
+  overflow-y: scroll;
+  margin-bottom: 50px;
 }
-
+#main::-webkit-scrollbar {
+  display: none;
+}
 /* ----------------  Buttons  --------------------- */
 #buttonList {
   max-width: 85vw;
@@ -266,22 +271,21 @@ p {
   overflow-x: scroll;
   padding: 12px 10px 10px 4vw;
   position: sticky;
-  top: 64px;
+  top: 3px;
   background-color: var(--bg-color);
 }
 #buttonList::-webkit-scrollbar {
   display: none;
 }
 #buttonList button {
-  padding: 3px 13px;
-  background-color: var(--bg-color);
+  padding: 4px 13px;
+  background: var(--bg-gray);
   color: var(--text-color);
   font-weight: 400;
   letter-spacing: 0.3px;
   border: none;
   font-size: 16px;
   border-radius: 25px;
-  border: 2px solid var(--text-color);
 }
 #main .video_container {
   width: 100%;
@@ -416,14 +420,24 @@ p {
 /* ########################   Watch Page  ############################### */
 
 #watchPage {
+  max-height: 100vh;
+  overflow-y: scroll;
   flex-basis: 1;
-  width: 60%;
-  padding-top: 10px;
-  margin-left: 50px;
+  width: 100vw;
+  padding: 20px 5vw;
+  display: flex;
+  gap: 10px;
+  justify-content: space-around;
+}
+#watchPage::-webkit-scrollbar {
+  display: none;
+}
+#watchPage #video_watch {
+  width: 55vw;
 }
 #watchPage #video_watch iframe {
-  width: 60vw;
-  height: 32vw;
+  width: 55vw;
+  height: 31vw;
   border-radius: 15px;
 }
 #watchPage #video_watch h3 {
@@ -460,8 +474,36 @@ p {
   padding-right: 15px;
   align-items: center;
 }
+#relatedVideos {
+  width: 370px;
+  min-height: 100%;
+  background-color: var(--search-bg);
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+#relatedCard {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+#relatedCard img {
+  width: 120px;
+  border-radius: 10px;
+}
+#relatedCard h2 {
+  font-size: 14px;
+  font-family: "inter";
+  font-weight: 600;
+  color: var(--text-color);
+}
+#relatedCard p {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-darkGray);
+}
 #shimmer_watch {
-  width: 60%;
+  width: 50%;
   margin-left: 50px;
   padding: 15px;
 }

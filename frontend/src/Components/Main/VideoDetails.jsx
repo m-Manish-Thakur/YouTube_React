@@ -19,7 +19,7 @@ const VideoDetails = ({ videoInfo, likes, id }) => {
     };
 
     fetchChannel();
-  }, []);
+  }, [id, likes, videoInfo]);
 
   //   Subscribers ----------------------------------
   function formatSubscribersCount(subscribersCount) {

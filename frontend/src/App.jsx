@@ -8,7 +8,6 @@ const App = () => {
   const isDarkMode = useSelector(selectIsDarkMode);
   return (
     <div className={isDarkMode ? "" : "darkmode"}>
-      <Header />
       <Body />
     </div>
   );

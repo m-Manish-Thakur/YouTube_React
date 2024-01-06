@@ -56,7 +56,7 @@ const VideoCard = ({ item }) => {
   return item ? (
     <Link to={`/videos/watch/${item?.id}/${item?.statistics?.likeCount}`} style={{ textDecoration: "none" }}>
       <div className="videoCard">
-        {!item?.snippet?.thumbnails?.medium?.url ? (
+        {!item?.snippet?.thumbnails?.maxres?.url ? (
           <div style={{ width: "100%", height: "200px", background: "var(--search-bg)", borderRadius: "10px" }}></div>
         ) : (
           <img src={item?.snippet?.thumbnails?.medium?.url} alt="Images" />

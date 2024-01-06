@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { API_KEY } from "../../Utils/constatnts";
 import VideoDetails from "./VideoDetails";
 import Shimmer_watch from "./Shimmer_watch";
+import RelatedVideos from "./RelatedVideos";
 
 const WatchPage = () => {
   const dispatch = useDispatch();
@@ -12,9 +13,9 @@ const WatchPage = () => {
   const [videoInfo, setVideoInfo] = useState(null);
 
   useEffect(() => {
+    dispatch(closeMenu());
     const fetchVideo = async () => {
       try {
-        // dispatch(closeMenu());
         const response = await fetch(
           `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${id}&key=${API_KEY}`
         );
@@ -58,6 +59,9 @@ const WatchPage = () => {
           allowFullScreen
         ></iframe>
         <VideoDetails videoInfo={videoInfo} likes={formattedLikes} id={id} />
+      </div>
+      <div>
+        <RelatedVideos />
       </div>
     </div>
   ) : (
