@@ -104,6 +104,33 @@ p {
   color: var(--bg-color);
 }
 
+#header .left .searchBarOpen {
+  position: relative;
+}
+#header .left .searchBarOpen input {
+  background-color: var(--bg-color);
+  width: 35vw;
+  border: 1px solid var(--bg-gray);
+  color: var(--text-color);
+  border-radius: 30px;
+  padding: 8px 20px;
+  font-size: 17px;
+  outline: none;
+  margin-left: 50px;
+}
+
+#header .left .searchBarOpen span {
+  color: var(--text-gray);
+  position: absolute;
+  top: 3px;
+  right: 4px;
+  font-size: 24px;
+  padding: 6.2px 10px;
+  border-radius: 30px;
+  background-color: var(--search-bg);
+  cursor: pointer;
+}
+
 #header .left #mic {
   border-radius: 50%;
   font-size: 24px;
@@ -695,49 +722,79 @@ p {
   border-radius: 15px;
   background-color: var(--search-bg);
 }
+
+/* ##########################   Watch Page Responsive  ######################## */
+
 @media screen and (max-width: 900px) {
   #watchPage {
-    height: 100%;
-    flex-basis: 1;
-    width: 100%;
-    margin-left: 0;
-    padding: 20px 0;
+    min-height: 100vh;
+    overflow-y: scroll;
+    width: 100vw;
+    padding: 5px 0;
     display: grid;
-    gap: 10px;
     grid-template-columns: 100vw;
+    gap: 10px;
+    justify-content: space-around;
   }
   #watchPage #video_watch {
+    width: 100%;
     height: 100%;
   }
   #watchPage #video_watch iframe {
     width: 100vw;
-    height: 55vw;
+    height: 57vw;
     border-radius: 0;
   }
-  #relatedVideo {
-    width: 100%;
+  #watchPage #video_watch div {
   }
   #watchPage #video_watch h3 {
-    font-size: 18px;
-    margin: 5px 10px;
+    font-family: "roboto";
+    font-weight: 500;
+    font-size: 17px;
+    padding: 0 5px;
+    color: var(--text-color);
   }
   #watchPage #video_watch .name_likes {
     display: flex;
     flex-direction: column-reverse;
-    gap: 20px;
+    justify-content: flex-start;
     align-items: flex-start;
-    padding: 15px 10px;
+    padding: 15px 5px;
+    gap: 15px;
   }
   #watchPage #video_watch .likes {
     display: flex;
+    justify-content: flex-start;
     gap: 10px;
   }
-  #watchPage #video_watch .likes span {
-    font-size: 22px;
-    padding: 6px 20px;
+
+  #relatedVideos {
+    width: 370px;
+    min-height: 100%;
+    background-color: var(--search-bg);
+    padding: 5px 10px;
+    border-radius: 10px;
   }
-  #watchPage #video_watch .likes p {
-    padding-right: 20px;
+  #relatedCard {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  #relatedCard img {
+    width: 120px;
+    border-radius: 10px;
+  }
+  #relatedCard h2 {
+    font-size: 14px;
+    font-family: "inter";
+    font-weight: 600;
+    color: var(--text-color);
+  }
+  #relatedCard p {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-darkGray);
   }
   #shimmer_watch {
     width: 100%;
@@ -844,5 +901,6 @@ p {
   }
   #comments {
     padding: 10px;
+    display: none;
   }
 }
