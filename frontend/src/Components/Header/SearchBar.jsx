@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addSearchResults } from "../../Utils/searchSlice";
 
-const SearchBar = () => {
+const SearchBar = ({ openSearch }) => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestion, setSuggestion] = useState([]);
@@ -55,7 +55,7 @@ const SearchBar = () => {
 
   return (
     <>
-      <div className="searchBar">
+      <div className={openSearch ? "searchBarOpen" : "searchBar"}>
         <input
           type="text"
           placeholder="Search"

@@ -72,6 +72,7 @@ p {
   display: flex;
   align-items: center;
 }
+
 #header .left .searchBar {
   position: relative;
 }
@@ -102,6 +103,7 @@ p {
   background-color: var(--text-color);
   color: var(--bg-color);
 }
+
 #header .left #mic {
   border-radius: 50%;
   font-size: 24px;
@@ -204,18 +206,159 @@ p {
     width: 50vw;
     margin-left: 0px;
   }
+  #searchSuggetion {
+    top: 50px;
+    width: 50vw;
+    left: 1vw;
+    padding: 5px 0;
+  }
+  #searchSuggetion p {
+    padding: 6px 10px;
+  }
+  #header .left .searchBarOpen {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 650px) {
   #header .left .searchBar {
+    display: none;
+  }
+
+  #header .left .searchBarOpen {
+    display: block;
     position: fixed;
-    width: 100%;
+    width: 100vw;
     left: 0;
   }
-  #header .left .searchBar input {
+  #header .left .searchBarOpen input {
+    background-color: var(--bg-color);
     width: 100%;
+    border: 1px solid var(--bg-gray);
+    color: var(--text-color);
+    border-radius: 30px;
+    padding: 8px 20px;
+    font-size: 17px;
+    outline: none;
+    margin-left: 0;
+  }
+
+  #header .left .searchBarOpen span {
+    color: var(--text-gray);
+    position: absolute;
+    top: 3px;
+    right: 4px;
+    font-size: 24px;
+    padding: 6.2px 10px;
+    border-radius: 30px;
+    background-color: var(--search-bg);
+    cursor: pointer;
+  }
+  #searchSuggetion {
+    top: 50px;
+    width: 98vw;
+    left: 1vw;
+    padding: 5px 0;
+    border-radius: 10px;
+  }
+  #searchSuggetion p {
+    padding: 6px 10px;
   }
 }
+
+/* --------------------------   Seacrh Page  ------------------------------------- */
+
+#searchPage {
+  max-height: 100vh;
+  overflow-y: scroll;
+  flex-basis: 1;
+  width: 100vw;
+  padding: 20px 5vw;
+}
+#searchPage .card {
+  background: var(--bg-color);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 15px;
+  margin-top: 10px;
+}
+#searchPage img {
+  width: 300px;
+}
+#searchPage h1 {
+  color: var(--text-color);
+  font-size: 20px;
+  font-family: "inter";
+  font-weight: 600;
+  margin-top: 10px;
+}
+#searchPage h3 {
+  color: var(--text-darkGray);
+  font-size: 16px;
+  font-family: "inter";
+  font-weight: 500;
+  margin-top: 10px;
+}
+#searchPage h4 {
+  color: var(--text-gray);
+  font-size: 14px;
+  font-family: "inter";
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 700px) {
+  #searchPage {
+    padding: 0px 2vw 100px 2vw;
+  }
+  #searchPage .card {
+    margin-top: 15px;
+  }
+  #searchPage img {
+    width: 250px;
+  }
+  #searchPage h1 {
+    font-size: 17px;
+  }
+  #searchPage h3 {
+    font-size: 15px;
+  }
+  #searchPage h4 {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  #searchPage {
+    padding: 0 0 100px 0;
+  }
+  #searchPage .card {
+    margin-top: 15px;
+    flex-direction: column;
+    gap: 0;
+  }
+  #searchPage img {
+    width: 100%;
+  }
+  #searchPage h1 {
+    font-size: 16px;
+    margin-top: 10px;
+    padding: 0 5px;
+  }
+  #searchPage h3 {
+    font-size: 15px;
+    margin-top: 5px;
+    padding: 0 5px;
+  }
+  #searchPage h4 {
+    font-size: 10px;
+    margin-top: 5px;
+    padding: 0 5px;
+    /* display: none; */
+  }
+}
+
 /* ###############################  Body  ################################### */
 #body {
   width: 100vw;
@@ -702,44 +845,4 @@ p {
   #comments {
     padding: 10px;
   }
-}
-
-#searchPage {
-  max-height: 100vh;
-  overflow-y: scroll;
-  flex-basis: 1;
-  width: 100vw;
-  padding: 20px 5vw;
-}
-#searchPage .card {
-  background: var(--bg-color);
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 15px;
-  margin-top: 10px;
-}
-#searchPage img {
-  width: 300px;
-}
-#searchPage h1 {
-  color: var(--text-color);
-  font-size: 20px;
-  font-family: "inter";
-  font-weight: 600;
-  margin-top: 10px;
-}
-#searchPage h3 {
-  color: var(--text-darkGray);
-  font-size: 16px;
-  font-family: "inter";
-  font-weight: 500;
-  margin-top: 10px;
-}
-#searchPage h4 {
-  color: var(--text-gray);
-  font-size: 14px;
-  font-family: "inter";
-  font-weight: 500;
-  margin-top: 10px;
 }

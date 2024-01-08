@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import LightDarkMode from "./LightDarkMode";
 import SearchBar from "./SearchBar";
 import { useDispatch } from "react-redux";
@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   const dispatch = useDispatch();
+  const [openSearch, setOpenSearch] = useState(false);
 
   return (
     <div id="header">
@@ -24,7 +25,7 @@ const Header = () => {
             <h2>YouTube</h2>
           </div>
         </Link>
-        <SearchBar />
+        <SearchBar openSearch={openSearch} />
       </div>
       <div className="right">
         <LightDarkMode />
@@ -36,11 +37,15 @@ const Header = () => {
       </div>
       <div id="reponsive_menu">
         <a href="#">
-          <span className="material-symbols-outlined">home</span>
+          <span className="material-symbols-outlined" onClick={() => setOpenSearch(false)}>
+            home
+          </span>
           Home
         </a>
         <a href="#">
-          <span className="material-symbols-outlined">search</span>
+          <span className="material-symbols-outlined" onClick={() => setOpenSearch(true)}>
+            search
+          </span>
           Search
         </a>
         <a href="#">
