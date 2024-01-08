@@ -29,19 +29,21 @@ const Header = () => {
       </div>
       <div className="right">
         <LightDarkMode />
-        <div className="new_video">
-          <span class="material-symbols-outlined">library_add</span>
-          <p>New Video</p>
-        </div>
+        <Link to="/live/videos" style={{ textDecoration: "none" }}>
+          <div className="new_video">
+            <span class="material-symbols-outlined">live_tv</span>
+            <p>Live</p>
+          </div>
+        </Link>
         <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" height="40px" />
       </div>
       <div id="reponsive_menu">
-        <a href="#">
+        <Link to="/">
           <span className="material-symbols-outlined" onClick={() => setOpenSearch(false)}>
             home
           </span>
           Home
-        </a>
+        </Link>
         <a href="#">
           <span className="material-symbols-outlined" onClick={() => setOpenSearch(true)}>
             search
@@ -53,8 +55,8 @@ const Header = () => {
           Subscriptions
         </a>
         <a href="#">
-          <span className="material-symbols-outlined">video_library</span>
-          Library
+          <span class="material-symbols-outlined">live_tv</span>
+          Live
         </a>
       </div>
     </div>

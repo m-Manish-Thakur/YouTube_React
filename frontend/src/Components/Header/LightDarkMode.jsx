@@ -9,7 +9,7 @@ const LightDarkMode = () => {
   return (
     <div>
       <span className="material-symbols-outlined" onClick={() => dispatch(toggleDarkMode())}>
-        {!isDarkMode ? "dark_mode" : "light_mode"}
+        {isDarkMode ? "dark_mode" : "light_mode"}
       </span>
     </div>
   );

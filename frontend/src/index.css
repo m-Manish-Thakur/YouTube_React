@@ -904,3 +904,10 @@ p {
     display: none;
   }
 }
+
+/* ###############################  Live Stream Page  ########################## */
+
+#liveStreamPage {
+  padding: 20px 5vw;
+  color: var(--text-color);
+}

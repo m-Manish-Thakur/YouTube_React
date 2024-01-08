@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import WatchPage from "./Main/WatchPage";
 import Header from "./Header/Header";
 import SearchResultsPage from "./Main/SearchResultsPage";
+import LiveStream from "./LiveStream/LiveStream";
 
 const Body = () => {
   return (
@@ -16,6 +17,7 @@ const Body = () => {
           <Route path="/" element={<Main />} />
           <Route path="/videos/watch/:id/:likes" element={<WatchPage />} />
           <Route path="/search/results" element={<SearchResultsPage />} />
+          <Route path="/live/videos" element={<LiveStream />} />
         </Routes>
       </div>
     </BrowserRouter>
