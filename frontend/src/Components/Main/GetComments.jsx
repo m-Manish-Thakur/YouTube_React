@@ -9,7 +9,6 @@ const GetComments = ({ videoId }) => {
         `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&maxResults=30&videoId=${videoId}&key=${API_KEY}`
       );
       const data = await response.json();
-      console.log(data);
       setComments(data);
     };
     fetch_comments();
@@ -21,7 +20,7 @@ const GetComments = ({ videoId }) => {
       {comments ? (
         <>
           {comments.items.map((item) => (
-            <div className="comment">
+            <div className="comment" key={item?.id}>
               <img
                 src={item?.snippet?.topLevelComment?.snippet?.authorProfileImageUrl}
                 style={{ borderRadius: "50%", width: "40px" }}

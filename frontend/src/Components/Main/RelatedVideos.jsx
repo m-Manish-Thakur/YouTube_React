@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 const RelatedVideos = () => {
   const dispatch = useDispatch();
   const getVideos = useSelector(GetVideos);
-  console.log(getVideos);
 
   const fetch_videos = async () => {
     const response = await fetch(`${YOUTUBE_API}`);
@@ -26,7 +25,7 @@ const RelatedVideos = () => {
         .reverse()
         .map((item) => (
           <Link to={`/videos/watch/${item?.id}/${item?.statistics?.likeCount}`} style={{ textDecoration: "none" }}>
-            <div id="relatedCard" key={item.id}>
+            <div id="relatedCard" key={item?.id}>
               <img src={item?.snippet?.thumbnails?.medium?.url} alt="Images" />
               <div>
                 <div>

@@ -19,7 +19,6 @@ const WatchLive = () => {
 
         if (data?.items && data.items.length > 0 && data.items[0].snippet) {
           setVideoInfo(data.items[0]?.snippet);
-          console.log(videoInfo);
         } else {
           console.error("Video data not found");
         }

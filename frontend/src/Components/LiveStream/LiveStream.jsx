@@ -12,7 +12,6 @@ const LiveStream = () => {
           `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&eventType=live&maxResults=30&regionCode=IN&key=${API_KEY}`
         );
         const data = await response.json();
-        console.log(data.items);
         setLiveBroadcasts(data.items);
         setLoading(false);
       } catch (error) {

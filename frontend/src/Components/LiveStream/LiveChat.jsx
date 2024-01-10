@@ -9,7 +9,6 @@ const LiveChat = ({ VIDEO_ID }) => {
         `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&maxResults=30&videoId=${VIDEO_ID}&key=${API_KEY}`
       );
       const data = await response.json();
-      console.log(data);
       setComments(data);
     };
     fetch_comments();

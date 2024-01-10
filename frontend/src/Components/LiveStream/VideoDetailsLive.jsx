@@ -12,7 +12,6 @@ const VideoDetailsLive = ({ videoInfo, id }) => {
         const response = await fetch(API_URL);
         const data = await response.json();
         setChannel(data?.items[0]);
-        console.log(data?.items[0]);
       } catch (error) {
         console.error("Error fetching channel data", error);
       }

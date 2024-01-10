@@ -37,7 +37,6 @@ const SearchBar = ({ openSearch }) => {
       const response = await fetch(`https://www.googleapis.com/youtube/v3/search?${params}`);
       const data = await response.json();
       dispatch(addSearchResults(data.items));
-      console.log(data.items);
       navigate("/search/results");
       setSearchQuery("");
     } catch (error) {
@@ -46,7 +45,6 @@ const SearchBar = ({ openSearch }) => {
   };
 
   const handleClick = (selectedSuggestion) => {
-    console.log("called");
     setSearchQuery(selectedSuggestion);
     setShowSuggestion(false);
     searchVideos(selectedSuggestion);

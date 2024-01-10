@@ -5,7 +5,6 @@ import { getSearchResults } from "../../Utils/searchSlice";
 
 const SearchResultsPage = () => {
   const results = useSelector(getSearchResults);
-  console.log(results);
   return (
     <div id="searchPage">
       {results.searchResults.length > 0 ? (
