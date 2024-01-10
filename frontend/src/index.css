@@ -745,8 +745,6 @@ p {
     height: 57vw;
     border-radius: 0;
   }
-  #watchPage #video_watch div {
-  }
   #watchPage #video_watch h3 {
     font-family: "roboto";
     font-weight: 500;
@@ -769,10 +767,11 @@ p {
   }
 
   #relatedVideos {
-    width: 370px;
+    width: 97%;
     min-height: 100%;
     background-color: var(--search-bg);
-    padding: 5px 10px;
+    padding: 5px;
+    margin: 0 5px;
     border-radius: 10px;
   }
   #relatedCard {
@@ -909,6 +908,7 @@ p {
 
 #liveStreamPage {
   max-height: 100vh;
+  background-color: var(--bg-color);
   overflow-y: scroll;
   flex-basis: 1;
   width: 100vw;
@@ -946,12 +946,14 @@ p {
 
 #watchLive {
   width: 100%;
-  min-height: 100vh;
-  display: flex;
+  max-height: 100vh;
+  overflow-y: scroll;
   gap: 25px;
-  justify-content: center;
-  padding: 15px 3vw;
+  padding: 15px 3vw 100px 3vw;
   background-color: var(--bg-color);
+}
+#watchLive::-webkit-scrollbar {
+  display: none;
 }
 
 #watchLive iframe {
@@ -959,24 +961,22 @@ p {
   height: calc(50vw / 1.77);
   border-radius: 10px;
 }
-
-#liveChat {
-  width: 360px;
-  border-radius: 10px;
+#videoDetailsLive {
+  width: 50vw;
+}
+#videoDetailsLive h3 {
+  font-family: "roboto";
+  font-weight: 900;
+  font-size: 20px;
   color: var(--text-color);
-  border: 1px solid var(--bg-gray);
 }
-#liveChat h2 {
-  padding: 10px;
-  font-family: "inter";
-  font-weight: 600;
-  font-size: 18px;
-  border-bottom: 1px solid var(--bg-gray);
-}
+
 @media screen and (max-width: 500px) {
   #liveStreamPage {
     padding: 10px 0 50px 0;
     gap: 10px;
+    max-height: 100vh;
+    background-color: var(--bg-color);
   }
   #watchLive {
     width: 100%;
@@ -985,10 +985,20 @@ p {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: 10px 0px 50px 0px;
+    padding: 10px 0px 120px 0px;
   }
   #watchLive iframe {
     width: 100vw;
-    height: 60vw;
+    height: calc(100vw / 1.7);
+  }
+  #videoDetailsLive {
+    width: 100vw;
+  }
+  #videoDetailsLive h3 {
+    font-family: "roboto";
+    font-weight: 500;
+    font-size: 17px;
+    padding: 0 10px;
+    color: var(--text-color);
   }
 }

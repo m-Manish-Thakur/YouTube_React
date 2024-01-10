@@ -71,7 +71,7 @@ const VideoCard = ({ item }) => {
           <div>
             <h2>{item?.snippet?.title.substring(0, 60)}</h2>
             <div className="chennel">
-              <p>{item?.snippet?.channelTitle}</p>
+              <p>{item?.snippet?.channelTitle.substring(0, 20)}..</p>
               <h3>
                 {formattedViews} • {formattedDate}
               </h3>

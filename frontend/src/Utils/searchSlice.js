@@ -13,6 +13,6 @@ const searchSlice = createSlice({
   },
 });
 
-export const { addSearchResults } = searchSlice.actions;
+export const { addSearchResults, setSearchQuery } = searchSlice.actions;
 export const getSearchResults = (state) => state.searchResults;
 export default searchSlice.reducer;

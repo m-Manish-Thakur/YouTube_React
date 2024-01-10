@@ -54,10 +54,12 @@ const Header = () => {
           <span className="material-symbols-outlined">subscriptions</span>
           Subscriptions
         </a>
-        <a href="#">
-          <span class="material-symbols-outlined">live_tv</span>
-          Live
-        </a>
+        <Link to="/live/videos" style={{ textDecoration: "none" }}>
+          <a href="#">
+            <span class="material-symbols-outlined">live_tv</span>
+            Live
+          </a>
+        </Link>
       </div>
     </div>
   );
