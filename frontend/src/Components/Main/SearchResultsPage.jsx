@@ -1,18 +1,11 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate, useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getSearchResults } from "../../Utils/searchSlice";
 
 const SearchResultsPage = () => {
-  const navigate = useNavigate();
-  const history = useHistory();
-
   const results = useSelector(getSearchResults);
   console.log(results);
-
-  useEffect(() => {
-    history.push("/");
-  }, [history]);
 
   return (
     <div id="searchPage">

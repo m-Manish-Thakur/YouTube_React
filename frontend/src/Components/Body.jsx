@@ -6,6 +6,7 @@ import WatchPage from "./Main/WatchPage";
 import Header from "./Header/Header";
 import SearchResultsPage from "./Main/SearchResultsPage";
 import LiveStream from "./LiveStream/LiveStream";
+import WatchLive from "./LiveStream/WatchLive";
 
 const Body = () => {
   return (
@@ -18,6 +19,7 @@ const Body = () => {
           <Route path="/videos/watch/:id/:likes" element={<WatchPage />} />
           <Route path="/search/results" element={<SearchResultsPage />} />
           <Route path="/live/videos" element={<LiveStream />} />
+          <Route path="/live/videos/watch/:id" element={<WatchLive />} />
         </Routes>
       </div>
     </BrowserRouter>

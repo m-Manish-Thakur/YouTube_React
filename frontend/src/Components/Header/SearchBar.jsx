@@ -13,7 +13,6 @@ const SearchBar = ({ openSearch }) => {
 
   useEffect(() => {
     const timer = setTimeout(() => getSearchSuggetion(), 400);
-    console.log(searchQuery);
     return () => {
       clearTimeout(timer);
     };
@@ -31,7 +30,7 @@ const SearchBar = ({ openSearch }) => {
         q: query,
         part: "snippet",
         type: "video",
-        maxResults: 10,
+        maxResults: 20,
         key: API_KEY,
       });
 

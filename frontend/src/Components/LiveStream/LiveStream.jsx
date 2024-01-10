@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { API_KEY } from "../../Utils/constatnts";
+import { Link } from "react-router-dom";
 
 const LiveStream = () => {
   const [liveBroadcasts, setLiveBroadcasts] = useState([]);
@@ -8,7 +9,7 @@ const LiveStream = () => {
     const fetchLiveBroadcasts = async () => {
       try {
         const response = await fetch(
-          `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&eventType=live&regionCode=IN&key=${API_KEY}`
+          `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&eventType=live&maxResults=30&regionCode=IN&key=${API_KEY}`
         );
         const data = await response.json();
         console.log(data.items);
@@ -23,21 +24,20 @@ const LiveStream = () => {
   }, []);
   return (
     <div id="liveStreamPage">
-      <h2>Live Video Player</h2>
-      {loading ? (
-        <p>Loading...</p>
-      ) : liveBroadcasts.length > 0 ? (
-        <iframe
-          width="560"
-          height="315"
-          src={`https://www.youtube.com/embed/${liveBroadcasts[1].id.videoId}?autoplay=1`}
-          title="Live Video Player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
+      {liveBroadcasts.length > 0 ? (
+        liveBroadcasts.map((video) => (
+          <Link to={`/live/videos/watch/${video?.id?.videoId}`} style={{ textDecoration: "none" }}>
+            <div className="card" key={video?.id?.videoId}>
+              <img src={video?.snippet?.thumbnails?.medium?.url} alt="video" />
+              <h3>{video?.snippet?.title}</h3>
+              <h4>{video?.snippet?.channelTitle}</h4>
+            </div>
+          </Link>
+        ))
       ) : (
-        <p>No live broadcasts available</p>
+        <>
+          <h1 style={{ color: "var(--text-color)", marginTop: "50px" }}>Loading...</h1>
+        </>
       )}
     </div>
   );

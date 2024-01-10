@@ -21,7 +21,6 @@ const VideoContainer = () => {
     fetch_videos();
   }, []);
 
-  console.log(getVideos);
   return getVideos.length != 0 ? (
     <div className="video_container">
       {getVideos.videos.map((item) => (
