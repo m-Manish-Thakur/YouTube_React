@@ -66,6 +66,9 @@ const SearchBar = ({ openSearch }) => {
           <div id="searchSuggetion">
             {suggestion.map((item, index) => (
               <p key={index} onClick={() => handleClick(item)}>
+                <i class="material-symbols-outlined" id="searchSug">
+                  search
+                </i>
                 {item}
               </p>
             ))}

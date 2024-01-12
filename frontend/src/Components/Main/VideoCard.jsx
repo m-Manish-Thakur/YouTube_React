@@ -59,7 +59,7 @@ const VideoCard = ({ item }) => {
         {!item?.snippet?.thumbnails?.maxres?.url ? (
           <div style={{ width: "100%", height: "200px", background: "var(--search-bg)", borderRadius: "10px" }}></div>
         ) : (
-          <img src={item?.snippet?.thumbnails?.medium?.url} alt="Images" />
+          <img src={item?.snippet?.thumbnails?.maxres?.url} alt="Images" />
         )}
 
         <div className="video_info">
