@@ -13,13 +13,13 @@ const SideBar = () => {
   return (
     <div id="sideBar" className={isOpenMenu ? "sideBar" : "sideBarClose"}>
       <a href="#" className="active">
-        <span className="material-symbols-outlined">home</span> Home
+        <span className="ri-home-5-line"></span> Home
       </a>
       <a href="#">
-        <span className="material-symbols-outlined">local_fire_department</span> Explore
+        <span className="ri-fire-line"></span> Explore
       </a>
       <a href="#">
-        <span className="material-symbols-outlined">subscriptions</span> Subscriptions
+        <span class="ri-vidicon-line"></span> Subscriptions
       </a>
       <a href="#">
         <span className="material-symbols-outlined">bookmarks</span> Library
@@ -35,19 +35,7 @@ const SideBar = () => {
         <span class="material-symbols-outlined">local_mall</span> Shopping
       </a>
       <a href="#">
-        <span class="material-symbols-outlined">local_mall</span> Shopping
-      </a>
-      <a href="#">
-        <span class="material-symbols-outlined">local_mall</span> Shopping
-      </a>
-      <a href="#">
-        <span class="material-symbols-outlined">local_mall</span> Shopping
-      </a>
-      <a href="#">
-        <span class="material-symbols-outlined">local_mall</span> Shopping
-      </a>
-      <a href="#">
-        <span class="material-symbols-outlined">local_mall</span> Shopping
+        <span class="ri-music-2-line"></span> Music
       </a>
     </div>
   );

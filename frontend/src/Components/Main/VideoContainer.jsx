@@ -6,47 +6,26 @@ import { useDispatch, useSelector } from "react-redux";
 import { addVideos, GetVideos } from "../../Utils/videoSlice";
 
 const VideoContainer = () => {
-  // const [videos, setVideos] = useState(null);
   const dispatch = useDispatch();
   const getVideos = useSelector(GetVideos);
+  const [loading, setLoading] = useState(true);
 
   const fetch_videos = async () => {
     const response = await fetch(`${YOUTUBE_API}`);
     const data = await response.json();
     dispatch(addVideos(data.items));
-    // setVideos(data.items);
+    setLoading(false);
   };
 
   useEffect(() => {
     fetch_videos();
   }, []);
 
-  return getVideos.length != 0 ? (
+  return (
     <div className="video_container">
-      {getVideos.videos.map((item) => (
-        <VideoCard item={item} key={item?.id} />
-      ))}
-    </div>
-  ) : (
-    <div
-      style={{
-        width: "100%",
-        display: "flex",
-        justifyContent: "space-around",
-        gap: "10px",
-        flexWrap: "wrap",
-      }}
-    >
-      <Shimmer_VideoCard />
-      <Shimmer_VideoCard />
-      <Shimmer_VideoCard />
-      <Shimmer_VideoCard />
-      <Shimmer_VideoCard />
-      <Shimmer_VideoCard />
-      <Shimmer_VideoCard />
-      <Shimmer_VideoCard />
-      <Shimmer_VideoCard />
-      <Shimmer_VideoCard />
+      {loading
+        ? Array.from({ length: 10 }).map((_, index) => <Shimmer_VideoCard key={index} />)
+        : getVideos.videos.map((item) => <VideoCard item={item} key={item?.id} />)}
     </div>
   );
 };
